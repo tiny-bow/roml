@@ -4,7 +4,7 @@ pub fn build(b: *std.Build) void {
     const optimizeOpt = b.standardOptimizeOption(.{});
     const targetOpt = b.standardTargetOptions(.{});
 
-    const module = b.addModule("zig-toml", .{ .root_source_file = b.path("src/main.zig") });
+    const module = b.addModule("roml", .{ .root_source_file = b.path("src/main.zig") });
 
     const main_tests = b.addTest(.{
         .root_source_file = b.path("src/tests.zig"),

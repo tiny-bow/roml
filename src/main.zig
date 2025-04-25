@@ -92,6 +92,12 @@ pub fn Parser(comptime Target: type) type {
                 return .{ .arena = arena, .value = tab };
             }
 
+            if (Target == Value) {
+                const out = try arena.allocator().create(Table);
+                out.* = tab;
+                return .{ .arena = arena, .value = .{ .table = out } };
+            }
+
             var mapping_ctx = struct_mapping.Context.init(alloc);
 
             var dest: Target = undefined;
